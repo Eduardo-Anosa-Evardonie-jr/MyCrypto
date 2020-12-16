@@ -9,6 +9,7 @@ import {
   setFiat,
   setLanguage,
   setRates,
+  toggleDemoMode,
   useDispatch
 } from '@store';
 
@@ -27,6 +28,7 @@ export interface ISettingsContext {
   updateSettingsRates(rates: IRates): void;
   updateLanguageSelection(language: string): void;
   updateFiatCurrency(fiatTicker: TFiatTicker): void;
+  toggleDemoMode(isDemoMode: boolean): void;
 }
 
 function useSettings() {
@@ -66,6 +68,10 @@ function useSettings() {
     dispatch(setRates(rates));
   };
 
+  const toggleDemo = (isDemoMode: boolean) => {
+    dispatch(toggleDemoMode(isDemoMode));
+  };
+
   return {
     settings,
     language,
@@ -76,7 +82,8 @@ function useSettings() {
     updateSettingsAccounts,
     updateSettingsRates,
     updateLanguageSelection,
-    updateFiatCurrency
+    updateFiatCurrency,
+    toggleDemo
   };
 }
 
