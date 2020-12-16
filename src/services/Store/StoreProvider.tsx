@@ -491,7 +491,7 @@ export const StoreProvider: React.FC = ({ children }) => {
           createContact(newLabel);
         }
       });
-      createMultipleAccountsWithIDs(newRawAccounts);
+      createMultipleAccountsWithIDs(newRawAccounts, settings.isDemoMode); // todo - does this need a selector?
       return newRawAccounts;
     },
     addAccount: (
@@ -534,7 +534,7 @@ export const StoreProvider: React.FC = ({ children }) => {
         };
         createContact(newLabel);
       }
-      createAccountWithID(accountUUID, account);
+      createAccountWithID(accountUUID, account, settings.isDemoMode); // todo - does this need a selector?
 
       return account;
     },
